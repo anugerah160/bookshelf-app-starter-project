@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif; 
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #240046; 
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+main {
+    padding: 1rem;
+    flex: 1; 
+}
+
+section {
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ffffff;
+    text-shadow: 0 0 5px #9d00ff; 
+} 
+h2 {
+    color: #9d00ff;
+    text-shadow: 0 0 5px #9d00ff; 
+}
+
+h3{
+    color: #9dffff;
+    text-shadow: 0 0 5px #9d00ff; 
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"] {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 0.5rem;
+    color: white;
+    border-radius: 5px;
+    width: calc(100% - 1rem);
+    margin-bottom: 1rem;
+}
+
+input[type="checkbox"] {
+    accent-color: #9d00ff;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: white;
+}
+  
+.full-width-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #8000ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+  
+
+button {
+    background-color: #9d00ff; 
+    color: white;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 0.5rem; 
+}
+
+button:hover {
+    background-color: #bb33ff; 
+    box-shadow: 0 0 10px #bb33ff;
+
+}
+
+[data-testid="bookItem"] {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+[data-testid="bookItem"]:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+/*--------- Responsive --------*/
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+    section {
+        padding: 1rem;
+    }
+}
