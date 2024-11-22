@@ -32,12 +32,16 @@
             <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" />
           </div>
           <div class="form-group">
-            <label for="bookFormIsComplete">
-              <input type="checkbox" id="bookFormIsComplete" />
-              Selesai dibaca
-            </label>
+            <label for="bookFormIsComplete">Selesai dibaca</label>
+            <input
+              id="bookFormIsComplete"
+              type="checkbox"
+              data-testid="bookFormIsCompleteCheckbox"
+            />
           </div>
-          <button type="submit" class="full-width-button">Masukkan Buku ke rak Belum selesai dibaca</button>
+          <button id="bookFormSubmit" class="full-width-button" type="submit" data-testid="bookFormSubmitButton">
+            Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+          </button>
         </form>
       </section>
 
