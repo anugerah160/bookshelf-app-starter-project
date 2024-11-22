@@ -7,13 +7,23 @@ const searchBookTitle = document.getElementById('searchBookTitle');
 
 let books = [];
 
+function isStorageExist() /* boolean */ {
+  if (typeof (Storage) === undefined) {
+    alert('Browser kamu tidak mendukung local storage');
+    return false;
+  }
+  return true;
+}
+
 // Fungsi untuk SAVE data ke localStorage
-const saveToLocalStorage = () => {
+const saveData = () => {
+  if (isStorageExist()) {
   localStorage.setItem('books', JSON.stringify(books));
+  }
 };
 
 // Fungsi untuk GET data dari localStorage
-const loadFromLocalStorage = () => {
+const loadDataFromStorage = () => {
   const storedBooks = localStorage.getItem('books');
   if (storedBooks) {
     books = JSON.parse(storedBooks);
@@ -90,7 +100,7 @@ const addBook = (title, author, year, isComplete) => {
     isComplete
   };
   books.push(newBook);
-  saveToLocalStorage();
+  saveData();
   renderBooks();
 };
 
@@ -102,14 +112,14 @@ const moveBookToOtherShelf = (bookId) => {
     }
     return book;
   });
-  saveToLocalStorage();
+  saveData();
   renderBooks();
 };
 
 // Fungsi untuk DELETE buku
 const deleteBook = (bookId) => {
   books = books.filter(book => book.id !== bookId);
-  saveToLocalStorage();
+  saveData();
   renderBooks();
 };
 
@@ -126,7 +136,7 @@ const editBook = (bookId) => {
 
         if (newTitle !== null && newAuthor !== null && !isNaN(newYear)) {
             books[bookIndex] = { ...book, title: newTitle, author: newAuthor, year: newYear };
-            saveToLocalStorage();
+            saveData();
             renderBooks();
         }
     }
@@ -153,4 +163,4 @@ searchBookForm.addEventListener('submit', (event) => {
 searchBookTitle.addEventListener('input', renderBooks);
 
 // Load data from localStorage saat halaman dimuat
-loadFromLocalStorage();
+loadDataFromStorage();
